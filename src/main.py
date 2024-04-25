@@ -26,3 +26,6 @@ def game_level():
         attempts = 15
     else:
         print("Can only type E, M or H")
+
+def game_play():
+    number = random.randint(1, max)
