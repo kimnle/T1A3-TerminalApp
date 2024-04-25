@@ -5,10 +5,13 @@ def game_title():
 
 def player_name():
     try:
-        player_name = input("Player name: ")
-        if not player_name:
+        name = input("Player name: ")
+        if not name:
             raise ValueError("Cannot be empty")
         else:
-            print(f"Hey {player_name}")
+            print(f"Hey {name}")
     except ValueError as e:
             print(e)
+
+def game_level():
+    level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
