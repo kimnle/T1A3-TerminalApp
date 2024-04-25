@@ -31,14 +31,17 @@ def player_guess():
     number = random.randint(1, max)
     guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
 
-def validate_guess(guess, number):
-    attempts_counter = 1
-    if guess < number:
-        print("Higher")
-        attempts_counter += 1
-    elif guess > number:
-        print("Lower")
-        attempts_counter += 1
-    elif guess == number:
-        print(f"You guessed it in {attempts_counter} attempts!")
-        return
+def validate_guess(guess, number, attempts):
+    attempts_counter = 0
+    while attempts_counter < attempts:
+        if guess < number:
+            print("Higher")
+            attempts_counter += 1
+        elif guess > number:
+            print("Lower")
+            attempts_counter += 1
+        elif guess == number:
+            print(f"You guessed it in {attempts_counter} attempts!")
+            return
+    else:
+        print(f"You ran out of attempts, the number was {number}")
