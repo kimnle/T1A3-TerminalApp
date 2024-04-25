@@ -27,5 +27,6 @@ def game_level():
     else:
         print("Can only type E, M or H")
 
-def game_play():
+def player_guess():
     number = random.randint(1, max)
+    guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
