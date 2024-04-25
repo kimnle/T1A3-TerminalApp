@@ -15,3 +15,14 @@ def player_name():
 
 def game_level():
     level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
+    if level.lower() == "e":
+        max = 10
+        attempts = 5
+    elif level.lower() == "m":
+        max = 100
+        attempts = 10
+    elif level.lower() == "h":
+        max = 1000
+        attempts = 15
+    else:
+        print("Can only type E, M or H")
