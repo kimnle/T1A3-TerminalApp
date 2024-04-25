@@ -30,3 +30,5 @@ def game_level():
 def player_guess():
     number = random.randint(1, max)
     guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
+
+def guess_check():
