@@ -45,3 +45,9 @@ def validate_guess(guess, number, attempts):
             return
     else:
         print(f"You ran out of attempts, the number was {number}")
+
+def play_game():
+    again = "y"
+    while again.lower() == "y":
+        again = input("Play again? Y or N: ")
+    print("Play again soon!!")
