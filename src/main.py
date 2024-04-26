@@ -49,15 +49,13 @@ def validate_guess(guess, number, attempts):
 def play_game():
     game_title()
     player_name()
-    again = input("Play again? Y or N: ")
-    if again.lower() == "y":
+    again == "y"
+    while again.lower() == "y":
         game_level()
         player_guess()
         validate_guess()
-    elif again.lower() == "n":
-        print("Play again soon!!")
-    else:
-        print("Can only type Y or N")
+        again = input("Play again? Y or N: ")
+    print("Play again soon!!")
 
 if __name__ == "__main__":
     play_game()
