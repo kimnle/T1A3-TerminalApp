@@ -21,11 +21,11 @@ def game_level():
     else:
         print("Can only type E, M or H")
 
-def player_guess():
+def player_guess(max):
     number = random.randint(1, max)
     guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
 
-def validate_guess(guess, number, attempts):
+def validate_guess(attempts, guess, number):
     attempts_counter = 0
     while attempts_counter < attempts:
         if guess < number:
