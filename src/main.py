@@ -40,7 +40,7 @@ def validate_guess(attempts, guess, number):
     else:
         print(f"You ran out of attempts, the number was {number}")
 
-# def play_game():
+# def play_again():
 #     game_title()
 #     player_name()
 #     again == "y"
