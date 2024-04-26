@@ -40,20 +40,19 @@ def validate_guess(attempts, guess, number):
     else:
         print(f"You ran out of attempts, the number was {number}")
 
-# def play_again():
-#     game_title()
-#     player_name()
-#     again == "y"
-#     while again.lower() == "y":
-#         game_level()
-#         player_guess()
-#         validate_guess()
-#         again = input("Play again? Y or N: ")
-#     print("Play again soon!!")
+def play_again():
+    again == "y"
+    while again.lower() == "y":
+        again = input("Play again? Y or N: ")
+        game_level()
+        player_guess()
+        validate_guess()
+    print("Play again soon!!")
 
 if __name__ == "__main__":
     game_title()
     player_name()
     game_level()
-    player_guess()
+    player_guess(max)
     validate_guess()
+    play_again()
