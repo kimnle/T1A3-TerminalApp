@@ -28,12 +28,18 @@ def game_play():
             print("Higher")
             attempt += 1
             attempts_left = attempts - attempt
-            print(f"{attempts_left} attempts left")
+            if attempts_left == 1:
+                print(f"{attempts_left} attempt left")
+            else:
+                print(f"{attempts_left} attempts left")
         elif guess > number:
             print("Lower")
             attempt += 1
             attempts_left = attempts - attempt
-            print(f"{attempts_left} attempts left")
+            if attempts_left == 1:
+                print(f"{attempts_left} attempt left")
+            else:
+                print(f"{attempts_left} attempts left")
         elif guess == number:
             print(f"Congrats!! You guessed it in {attempt} attempts")
             return
