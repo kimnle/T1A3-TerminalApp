@@ -38,6 +38,7 @@ def game_play():
 
     number = random.randint(1, max)
     attempt = 0
+
     while attempt < attempts:
         while True:
             try:
@@ -47,7 +48,7 @@ def game_play():
                 else:
                     print(f"Please enter a number between 1 and {max} inclusive")
             except ValueError:
-                    rint("Please enter numbers only")
+                    print("Please enter numbers only")
 
         if guess < number:
             print("Higher")
