@@ -23,7 +23,7 @@ def level_guess():
     number = random.randint(1, max)
     guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
 
-def validate_guess(attempts, guess, number):
+def validate_guess():
     attempts_counter = 0
     while attempts_counter < attempts:
         if guess < number:
@@ -39,12 +39,20 @@ def validate_guess(attempts, guess, number):
         print(f"You ran out of attempts, the number was {number}")
 
 def play_again():
-    again == "y"
-    while again.lower() == "y":
-        again = input("Play again? Y or N: ")
+    again = input("Play again? Y or N: ")
+    if again.lower() == "y":
         level_guess()
         validate_guess()
-    print("Play again soon!!")
+    elif again.lower() == "n":
+        print("Play again soon!!")
+    # game_title()
+    # player_name()
+    # again = "y"
+    # while again.lower() == "y":
+    #     level_guess()
+    #     validate_guess()
+    #     again = input("Play again? Y or N: ")
+    # print("Play again soon!!")
 
 if __name__ == "__main__":
     game_title()
