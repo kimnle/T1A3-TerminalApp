@@ -4,8 +4,17 @@ def game_title():
     print("Guess the Number Game")
 
 def player_name():
-    name = input("Player name: ")
-    print(f"Hey {name}")
+    while True:
+        try:
+            name = input("Player name: ")
+            if not name:
+                raise ValueError("Cannot be empty")  
+            else:
+                print(f"Hey {name}")
+                break
+        except ValueError as e:
+            print(e)
+    
 
 def game_play():
     level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
