@@ -7,7 +7,7 @@ def player_name():
     name = input("Player name: ")
     print(f"Hey {name}")
 
-def level_guess():
+def game_play():
     level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
     if level.lower() == "e":
         max = 10
@@ -39,12 +39,12 @@ def level_guess():
 def play_again():
     again = input("Play again? Y or N: ")
     if again.lower() == "y":
-        level_guess()
+        game_play()
     elif again.lower() == "n":
         print("Play again soon!!")
 
 if __name__ == "__main__":
     game_title()
     player_name()
-    level_guess()
+    game_play()
     play_again()
