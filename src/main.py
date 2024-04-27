@@ -12,23 +12,30 @@ def player_name():
             else:
                 print(f"Hey {name}")
                 break
-        except ValueError as e:
-            print(e)
+        except ValueError as a:
+            print(a)
     
-
 def game_play():
-    level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
-    if level.lower() == "e":
-        max = 10
-        attempts = 5
-    elif level.lower() == "m":
-        max = 100
-        attempts = 8
-    elif level.lower() == "h":
-        max = 1000
-        attempts = 15
-    else:
-        print("Can only type E, M or H")
+    while True:
+        try:
+            level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
+            if level.lower() == "e":
+                max = 10
+                attempts = 5
+                break
+            elif level.lower() == "m":
+                max = 100
+                attempts = 8
+                break
+            elif level.lower() == "h":
+                max = 1000
+                attempts = 15
+                break
+            else:
+                raise ValueError("Can only type E, M or H")
+        except ValueError as b:
+            print(b)
+
     number = random.randint(1, max)
     attempt = 0
     while attempt < attempts:
