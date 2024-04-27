@@ -21,11 +21,9 @@ def level_guess():
     else:
         print("Can only type E, M or H")
     number = random.randint(1, max)
-    guess = int(input(f"Guess the number I am thinking of between 1 and {max}: "))
-
-def validate_guess():
     attempts_counter = 0
     while attempts_counter < attempts:
+        guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
         if guess < number:
             print("Higher")
             attempts_counter += 1
@@ -42,21 +40,11 @@ def play_again():
     again = input("Play again? Y or N: ")
     if again.lower() == "y":
         level_guess()
-        validate_guess()
     elif again.lower() == "n":
         print("Play again soon!!")
-    # game_title()
-    # player_name()
-    # again = "y"
-    # while again.lower() == "y":
-    #     level_guess()
-    #     validate_guess()
-    #     again = input("Play again? Y or N: ")
-    # print("Play again soon!!")
 
 if __name__ == "__main__":
     game_title()
     player_name()
     level_guess()
-    validate_guess()
     play_again()
