@@ -1,4 +1,4 @@
-import random
+import random, os.path
 
 def game_title():
     print("Guess the Number Game")
@@ -71,6 +71,8 @@ def game_play():
             return
     else:
         print(f"You ran out of attempts, the number was {number}")
+
+file_name = "high_score.csv"
 
 def play_again():
     while True:
