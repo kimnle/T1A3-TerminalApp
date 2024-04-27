@@ -22,54 +22,51 @@ def game_play():
             if level.lower() == "e":
                 max = 10
                 attempts = 5
-                break
             elif level.lower() == "m":
                 max = 100
                 attempts = 8
-                break
             elif level.lower() == "h":
                 max = 1000
                 attempts = 15
-                break
             else:
-                raise ValueError("Can only type E, M or H")
+                raise ValueError("Please type E, M or H only")
         except ValueError as b:
             print(b)
 
-    number = random.randint(1, max)
-    attempt = 0
-    while attempt < attempts:
-        while True:
-            try:
-                guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
-                if 1 <= guess <= max:
-                    break
-                else:
-                    print(f"Can only enter numbers between 1 and {max} inclusive")
-            except ValueError:
-                print("Can only enter numbers")
+        number = random.randint(1, max)
+        attempt = 0
+        while attempt < attempts:
+            while True:
+                try:
+                    guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
+                    if 1 <= guess <= max:
+                        break
+                    else:
+                        print(f"Please enter a number between 1 and {max} inclusive")
+                except ValueError:
+                    print("Please enter numbers only")
 
-        if guess < number:
-            print("Higher")
-            attempt += 1
-            attempts_left = attempts - attempt
-            if attempts_left == 1:
-                print(f"{attempts_left} attempt left")
-            else:
-                print(f"{attempts_left} attempts left")
-        elif guess > number:
-            print("Lower")
-            attempt += 1
-            attempts_left = attempts - attempt
-            if attempts_left == 1:
-                print(f"{attempts_left} attempt left")
-            else:
-                print(f"{attempts_left} attempts left")
-        elif guess == number:
-            print(f"Congrats!! You guessed it in {attempt} attempts")
-            return
-    else:
-        print(f"You ran out of attempts, the number was {number}")
+            if guess < number:
+                print("Higher")
+                attempt += 1
+                attempts_left = attempts - attempt
+                if attempts_left == 1:
+                    print(f"{attempts_left} attempt left")
+                else:
+                    print(f"{attempts_left} attempts left")
+            elif guess > number:
+                print("Lower")
+                attempt += 1
+                attempts_left = attempts - attempt
+                if attempts_left == 1:
+                    print(f"{attempts_left} attempt left")
+                else:
+                    print(f"{attempts_left} attempts left")
+            elif guess == number:
+                print(f"Congrats!! You guessed it in {attempt} attempts")
+                return
+        else:
+            print(f"You ran out of attempts, the number was {number}")
 
 def play_again():
     again = input("Play again? Y or N: ")
