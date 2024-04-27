@@ -21,18 +21,21 @@ def game_play():
     else:
         print("Can only type E, M or H")
     number = random.randint(1, max)
-    print(f"Guess the number I am thinking of between 1 and {max}")
     attempt = 0
     while attempt < attempts:
         guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
         if guess < number:
             print("Higher")
             attempt += 1
+            attempts_left = attempts - attempt
+            print(f"{attempts_left} attempts left")
         elif guess > number:
             print("Lower")
             attempt += 1
+            attempts_left = attempts - attempt
+            print(f"{attempts_left} attempts left")
         elif guess == number:
-            print(f"You guessed it in {attempt} attempts!")
+            print(f"Congrats!! You guessed it in {attempt} attempts")
             return
     else:
         print(f"You ran out of attempts, the number was {number}")
