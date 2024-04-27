@@ -52,6 +52,8 @@ def play_again():
         game_play()
     elif again.lower() == "n":
         print("Play again soon!!")
+    else:
+        print("Can only type Y or N")
 
 if __name__ == "__main__":
     game_title()
