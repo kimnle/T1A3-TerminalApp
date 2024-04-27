@@ -79,6 +79,7 @@ def play_again():
             if again.lower() == "y":
                 game_play()
                 play_again()
+                break
             elif again.lower() == "n":
                 print("Play again soon!!")
                 break
