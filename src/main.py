@@ -50,6 +50,7 @@ def play_again():
     again = input("Play again? Y or N: ")
     if again.lower() == "y":
         game_play()
+        play_again()
     elif again.lower() == "n":
         print("Play again soon!!")
     else:
