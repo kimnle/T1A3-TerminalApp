@@ -73,14 +73,19 @@ def game_play():
         print(f"You ran out of attempts, the number was {number}")
 
 def play_again():
-    again = input("Play again? Y or N: ")
-    if again.lower() == "y":
-        game_play()
-        play_again()
-    elif again.lower() == "n":
-        print("Play again soon!!")
-    else:
-        print("Can only type Y or N")
+    while True:
+        try:
+            again = input("Play again? Y or N: ")
+            if again.lower() == "y":
+                game_play()
+                play_again()
+            elif again.lower() == "n":
+                print("Play again soon!!")
+                break
+            else:
+                raise ValueError("Please type Y or N only")
+        except ValueError as c:
+            print(c)
 
 if __name__ == "__main__":
     game_title()
