@@ -39,7 +39,16 @@ def game_play():
     number = random.randint(1, max)
     attempt = 0
     while attempt < attempts:
-        guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
+        while True:
+            try:
+                guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
+                if 1 <= guess <= max:
+                    break
+                else:
+                    print(f"Can only enter numbers between 1 and {max} inclusive")
+            except ValueError:
+                print("Can only enter numbers")
+
         if guess < number:
             print("Higher")
             attempt += 1
