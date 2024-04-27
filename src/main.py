@@ -14,7 +14,7 @@ def game_play():
         attempts = 5
     elif level.lower() == "m":
         max = 100
-        attempts = 10
+        attempts = 8
     elif level.lower() == "h":
         max = 1000
         attempts = 15
