@@ -1,7 +1,7 @@
 import random
 
 def game_title():
-    print("Guess the number!!")
+    print("Guess the number game")
 
 def player_name():
     name = input("Player name: ")
