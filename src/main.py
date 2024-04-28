@@ -72,6 +72,14 @@ def game_play():
     else:
         print(f"You ran out of attempts, the number was {number}")
 
+def create_file(filename):
+    try:
+        with open(filename, "W") as f:
+            f.write("High Scores")
+        print("File created successfully")
+    except IOError:
+        print("Could not create file")
+
 def play_again():
     while True:
         try:
@@ -89,6 +97,7 @@ def play_again():
             print(c)
 
 if __name__ == "__main__":
+    filename = "highscore.txt"
     game_title()
     player_name()
     game_play()
