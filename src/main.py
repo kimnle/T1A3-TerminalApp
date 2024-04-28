@@ -3,10 +3,11 @@ import random, os
 def game_title():
     print("Guess the Number Game")
 
-def create_file(filename):
+def create_file(file_name):
     try:
-        with open(filename, "W") as f:
-            f.write("High Scores")
+        with open(file_name, "w") as f:
+            f.write("Level,Player name,Attempts\n")
+            f.close()
     except IOError:
         print("Could not create file")
 
@@ -78,12 +79,16 @@ def game_play():
             return
     else:
         print(f"You ran out of attempts, the number was {number}")
+    
+    # try:
+    #     with open(filename, "a") as f:
+    #         f.write("{level} level: {player_name} guessed the number in {attempt} attempts")
 
-def read_file(filename):
+def read_file(file_name):
     try:
-        with open(filename, "r") as f:
-            high_scores = f.read()
-            print(high_scores)
+        with open(file_name, "r") as f:
+            content = f.read()
+            print(content)
     except IOError:
         print("Could not read file")
 
@@ -104,11 +109,11 @@ def play_again():
             print(c)
 
 if __name__ == "__main__":
-    filename = "highscore.txt"
+    file_name = "scores.csv"
 
-    create_file()
+    create_file(file_name)
     game_title()
     player_name()
     game_play()
-    read_file()
+    read_file(file_name)
     play_again()
