@@ -80,9 +80,12 @@ def game_play():
     else:
         print(f"You ran out of attempts, the number was {number}")
     
-    # try:
-    #     with open(filename, "a") as f:
-    #         f.write("{level} level: {player_name} guessed the number in {attempt} attempts")
+    try:
+        with open(file_name, "a") as f:
+            writer = csv.writer(f)
+            writer.writerow([level, player_name, attempt])
+    except IOError:
+        print("Could not write in file")
 
 def read_file(file_name):
     try:
