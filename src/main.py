@@ -3,6 +3,13 @@ import random, os
 def game_title():
     print("Guess the Number Game")
 
+def create_file(filename):
+    try:
+        with open(filename, "W") as f:
+            f.write("High Scores")
+    except IOError:
+        print("Could not create file")
+
 def player_name():
     while True:
         try:
@@ -72,14 +79,6 @@ def game_play():
     else:
         print(f"You ran out of attempts, the number was {number}")
 
-def create_file(filename):
-    try:
-        with open(filename, "W") as f:
-            f.write("High Scores")
-        print("File created successfully")
-    except IOError:
-        print("Could not create file")
-
 def read_file(filename):
     try:
         with open(filename, "r") as f:
@@ -106,7 +105,10 @@ def play_again():
 
 if __name__ == "__main__":
     filename = "highscore.txt"
+
+    create_file()
     game_title()
     player_name()
     game_play()
+    read_file()
     play_again()
