@@ -5,9 +5,9 @@ import pandas as pandasForSortingCSV
 def game_title():
     print("Guess the Number Game")
 
-def create_file(path, file_name):
+def create_file(file_name):
     try:
-        with open(path, file_name, "w") as f:
+        with open(file_name, "w") as f:
             f.write("Level,Player name,Attempts\n")
     except IOError:
         print("Could not create file")
@@ -82,15 +82,15 @@ def game_play():
         print(f"You ran out of attempts, the number was {number}")
     
     try:
-        with open(path, file_name, "a") as f:
+        with open(file_name, "a") as f:
             csv_writer = csv.writer(f)
             csv_writer.writerow([level, player_name, attempt])
     except IOError:
         print("Could not write in file")
 
-def read_file(path, file_name):
+def read_file(file_name):
     try:
-        with open(path, file_name, "r") as f:
+        with open(file_name, "r") as f:
             panda_sorting = pandasForSortingCSV.read_csv(f)
             panda_sorting.sort_values(["Level"],
                                axis = 0,
@@ -117,7 +117,6 @@ def play_again():
             print(c)
 
 if __name__ == "__main__":
-    path = r"E:\src"
     file_name = "scores.csv"
 
     create_file(file_name)
