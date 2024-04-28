@@ -82,20 +82,20 @@ def game_play():
     
     try:
         with open(file_name, "a") as f:
-            writer = csv.writer(f)
-            writer.writerow([level, player_name, attempt])
+            csv_writer = csv.writer(f)
+            csv_writer.writerow([level, player_name, attempt])
     except IOError:
         print("Could not write in file")
 
 def read_file(file_name):
     try:
         with open(file_name, "r") as f:
-            scores = pandasForSortingCSV.read_csv(f)
-            scores.sort_values(["Level"],
+            panda_sorting = pandasForSortingCSV.read_csv(f)
+            panda_sorting.sort_values(["Level"],
                                axis = 0,
                                ascending = [True],
                                inplace = True)
-            print(scores)
+            print(panda_sorting)
     except IOError:
         print("Could not read file")
 
