@@ -1,4 +1,6 @@
-import random, os, csv, pandas as pandasForSortingCSV
+import random, os, csv
+
+import pandas as pandasForSortingCSV
 
 def game_title():
     print("Guess the Number Game")
