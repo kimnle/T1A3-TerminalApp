@@ -24,7 +24,7 @@ def player_name():
         except ValueError as a:
             print(a)
     
-def game_play():
+def game_play(name):
     while True:
         try:
             level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
@@ -84,7 +84,7 @@ def game_play():
     try:
         with open(file_name, "a") as f:
             csv_writer = csv.writer(f)
-            csv_writer.writerow([level, player_name, attempt])
+            csv_writer.writerow([level, player_name(name), attempt])
     except IOError:
         print("Could not write in file")
 
@@ -122,6 +122,6 @@ if __name__ == "__main__":
     create_file(file_name)
     game_title()
     player_name()
-    game_play()
+    game_play(player_name)
     read_file(file_name)
     play_again()
