@@ -9,7 +9,6 @@ def create_file(file_name):
     try:
         with open(file_name, "w") as f:
             f.write("Level,Player name,Attempts\n")
-            f.close()
     except IOError:
         print("Could not create file")
 
