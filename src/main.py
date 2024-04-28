@@ -80,6 +80,14 @@ def create_file(filename):
     except IOError:
         print("Could not create file")
 
+def read_file(filename):
+    try:
+        with open(filename, "r") as f:
+            high_scores = f.read()
+            print(high_scores)
+    except IOError:
+        print("Could not read file")
+
 def play_again():
     while True:
         try:
