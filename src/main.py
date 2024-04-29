@@ -13,6 +13,7 @@ def create_file(file_name):
         print("Could not create file")
 
 def player_name():
+    global name
     while True:
         try:
             name = input("Player name: ")
@@ -24,7 +25,7 @@ def player_name():
         except ValueError as a:
             print(a)
     
-def game_play(name):
+def game_play():
     while True:
         try:
             level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
@@ -77,26 +78,28 @@ def game_play(name):
                 print(f"{attempts_left} attempts left")
         elif guess == number:
             print(f"Congrats!! You guessed it in {attempt} attempts")
+            player_score = level, name, attempt
+            try:
+                with open(file_name, "a") as f:
+                    csv_writer = csv.writer(f)
+                    csv_writer.writerow(player_score)
+            except IOError:
+                print("Could not write in file")
             return
     else:
         print(f"You ran out of attempts, the number was {number}")
     
-    try:
-        with open(file_name, "a") as f:
-            csv_writer = csv.writer(f)
-            csv_writer.writerow([level, player_name(name), attempt])
-    except IOError:
-        print("Could not write in file")
-
 def read_file(file_name):
     try:
         with open(file_name, "r") as f:
-            panda_sorting = pandasForSortingCSV.read_csv(f)
-            panda_sorting.sort_values(["Level"],
-                               axis = 0,
-                               ascending = [True],
-                               inplace = True)
-            print(panda_sorting)
+            all_scores = f.read()
+            print(all_scores)
+            # panda_sorting = pandasForSortingCSV.read_csv(f)
+            # panda_sorting.sort_values(["Level"],
+            #                    axis = 0,
+            #                    ascending = [True],
+            #                    inplace = True)
+            # print(panda_sorting)
     except IOError:
         print("Could not read file")
 
@@ -105,7 +108,7 @@ def play_again():
         try:
             again = input("Play again? Y or N: ")
             if again.lower() == "y":
-                game_play(player_name)
+                game_play()
                 read_file(file_name)
                 play_again()
                 break
@@ -118,11 +121,11 @@ def play_again():
             print(c)
 
 if __name__ == "__main__":
-    file_name = "scores.csv"
+    file_name = "players_scores.csv"
 
     create_file(file_name)
     game_title()
     player_name()
-    game_play(player_name)
+    game_play()
     read_file(file_name)
     play_again()
