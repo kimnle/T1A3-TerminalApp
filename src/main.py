@@ -105,7 +105,8 @@ def play_again():
         try:
             again = input("Play again? Y or N: ")
             if again.lower() == "y":
-                game_play()
+                game_play(player_name)
+                read_file(file_name)
                 play_again()
                 break
             elif again.lower() == "n":
