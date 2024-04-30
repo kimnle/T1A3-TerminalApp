@@ -98,7 +98,10 @@ def read_file(file_name):
         df = pd.read_csv(file_name)
         sorted_df = df.sort_values(by=["Level"], ascending=True)
         sorted_df.to_csv(file_name, index=False)
-        print(sorted_df)
+        if sorted_df.empty == False:
+            print(sorted_df)
+        else:
+            return
     except IOError:
         print("Could not read file")
 
