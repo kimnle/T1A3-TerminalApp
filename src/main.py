@@ -1,4 +1,4 @@
-import random, os, csv
+import random, csv
 
 import pandas as pd
 
