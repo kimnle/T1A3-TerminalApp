@@ -47,9 +47,9 @@ def game_play():
             print(b)
 
     number = random.randint(1, max)
-    attempt = 0
+    attempt = 1
 
-    while attempt < attempts:
+    while attempt <= attempts:
         while True:
             try:
                 guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
@@ -63,7 +63,7 @@ def game_play():
         if guess < number:
             print("Higher")
             attempt += 1
-            attempts_left = attempts - attempt
+            attempts_left = attempts - attempt + 1
             if attempts_left == 1:
                 print(f"{attempts_left} attempt left")
             else:
@@ -71,17 +71,13 @@ def game_play():
         elif guess > number:
             print("Lower")
             attempt += 1
-            attempts_left = attempts - attempt
+            attempts_left = attempts - attempt + 1
             if attempts_left == 1:
                 print(f"{attempts_left} attempt left")
             else:
                 print(f"{attempts_left} attempts left")
         elif guess == number:
-            if attempt == 0:
-                print("Congrats!! You guessed it in the first attempt")
-                attempt += 1
-            else:
-                print(f"Congrats!! You guessed it in {attempt} attempts")
+            print(f"Congrats!! You guessed it in {attempt} attempts")
             player_score = level, name, attempt
             try:
                 with open(file_name, "a") as f:
@@ -89,7 +85,7 @@ def game_play():
                     csv_writer.writerow(player_score)
             except IOError:
                 print("Could not write in file")
-            return
+            break
     else:
         print(f"You ran out of attempts, the number was {number}")
     
@@ -101,7 +97,7 @@ def read_file(file_name):
         if sorted_df.empty == False:
             print(sorted_df)
         else:
-            return
+            print("Win to show your scores")
     except IOError:
         print("Could not read file")
 
