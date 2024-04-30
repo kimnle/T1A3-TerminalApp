@@ -1,6 +1,6 @@
 import random, os, csv
 
-import pandas as pandasForSortingCSV
+import pandas as pd
 
 def game_title():
     print("Guess the Number Game")
@@ -91,15 +91,10 @@ def game_play():
     
 def read_file(file_name):
     try:
-        with open(file_name, "r") as f:
-            all_scores = f.read()
-            print(all_scores)
-            # panda_sorting = pandasForSortingCSV.read_csv(f)
-            # panda_sorting.sort_values(["Level"],
-            #                    axis = 0,
-            #                    ascending = [True],
-            #                    inplace = True)
-            # print(panda_sorting)
+        df = pd.read_csv(file_name)
+        sorted_df = df.sort_values(by=["Level"], ascending=True)
+        sorted_df.to_csv(file_name, index=False)
+        print(sorted_df)
     except IOError:
         print("Could not read file")
 
