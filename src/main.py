@@ -28,21 +28,21 @@ def player_name():
 def game_play():
     while True:
         try:
-            level = input("Choose level - E for Easy, M for Medium or H or Hard: ")
-            if level.lower() == "e":
+            level = input("Choose level - easy, medium or hard: ")
+            if level.lower() == "easy":
                 max = 10
                 attempts = 5
                 break
-            elif level.lower() == "m":
+            elif level.lower() == "medium":
                 max = 100
                 attempts = 8
                 break
-            elif level.lower() == "h":
+            elif level.lower() == "hard":
                 max = 1000
                 attempts = 10
                 break
             else:
-                raise ValueError("Please type E, M or H only")
+                raise ValueError("Please type easy, medium or hard only")
         except ValueError as b:
             print(b)
 
