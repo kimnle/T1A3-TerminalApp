@@ -8,12 +8,11 @@ def game_title():
 def create_file(file_name):
     try:
         with open(file_name, "w") as f:
-            f.write("Level,Player name,Attempts\n")
+            f.write("Level,Attempts\n")
     except IOError:
         print("Could not create file")
 
 def player_name():
-    global name
     while True:
         try:
             name = input("Player name: ")
@@ -78,7 +77,7 @@ def game_play():
                 print(f"{attempts_left} attempts left")
         elif guess == number:
             print(f"Congrats!! You guessed it in {attempt} attempts")
-            player_score = level, name, attempt
+            player_score = level, attempt
             try:
                 with open(file_name, "a") as f:
                     csv_writer = csv.writer(f)
@@ -95,6 +94,7 @@ def read_file(file_name):
         sorted_df = df.sort_values(by=["Level"], ascending=True)
         sorted_df.to_csv(file_name, index=False)
         if sorted_df.empty == False:
+            print("Your scores")
             print(sorted_df)
         else:
             print("Win to show your scores")
