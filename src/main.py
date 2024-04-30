@@ -1,9 +1,9 @@
 import random, csv
-
 import pandas as pd
+from colored import Fore, Style
 
 def game_title():
-    print("Guess the Number Game")
+    print(f"{Fore.green}Guess the Number Game{Style.reset}")
 
 def create_file(file_name):
     try:
@@ -17,9 +17,9 @@ def player_name():
         try:
             name = input("Player name: ")
             if not name:
-                raise ValueError("Cannot be empty")  
+                raise ValueError(f"{Fore.red}Cannot be empty{Style.reset}")  
             else:
-                print(f"Hey {name}")
+                print(f"Hey {Fore.blue}{name}{Style.reset}")
                 break
         except ValueError as a:
             print(a)
@@ -27,7 +27,7 @@ def player_name():
 def game_play():
     while True:
         try:
-            level = input("Choose level - easy, medium or hard: ")
+            level = input(f"Choose level - {Fore.yellow}easy{Style.reset}, {Fore.dark_orange_3a}medium{Style.reset} or {Fore.light_red}hard{Style.reset}: ")
             if level.lower() == "easy":
                 max = 10
                 attempts = 5
@@ -41,7 +41,7 @@ def game_play():
                 attempts = 10
                 break
             else:
-                raise ValueError("Please type easy, medium or hard only")
+                raise ValueError(f"{Fore.red}Please type easy, medium or hard only{Style.reset}")
         except ValueError as b:
             print(b)
 
@@ -51,32 +51,32 @@ def game_play():
     while attempt <= attempts:
         while True:
             try:
-                guess = int(input(f"Guess the number that I am thinking of between 1 and {max}: "))
+                guess = int(input(f"Guess the number that I am thinking of between {Fore.magenta}1{Style.reset} and {Fore.magenta}{max}{Style.reset}: "))
                 if 1 <= guess <= max:
                     break
                 else:
-                    print(f"Please enter a number between 1 and {max} inclusive")
+                    print(f"{Fore.red}Please enter a number between 1 and {max} inclusive{Style.reset}")
             except ValueError:
-                    print("Please enter numbers only")
+                    print(f"{Fore.red}Please enter numbers only{Style.reset}")
 
         if guess < number:
-            print("Higher")
+            print(f"{Fore.cyan}Higher{Style.reset}")
             attempt += 1
             attempts_left = attempts - attempt + 1
             if attempts_left == 1:
-                print(f"{attempts_left} attempt left")
+                print(f"{Fore.light_yellow}{attempts_left}{Style.reset} attempt left")
             else:
-                print(f"{attempts_left} attempts left")
+                print(f"{Fore.light_yellow}{attempts_left}{Style.reset} attempts left")
         elif guess > number:
-            print("Lower")
+            print(f"{Fore.light_green}Lower{Style.reset}")
             attempt += 1
             attempts_left = attempts - attempt + 1
             if attempts_left == 1:
-                print(f"{attempts_left} attempt left")
+                print(f"{Fore.light_yellow}{attempts_left}{Style.reset} attempt left")
             else:
-                print(f"{attempts_left} attempts left")
+                print(f"{Fore.light_yellow}{attempts_left}{Style.reset} attempts left")
         elif guess == number:
-            print(f"Congrats!! You guessed it in {attempt} attempts")
+            print(f"{Fore.light_magenta}Congrats!!{Style.reset} You guessed it in {Fore.light_yellow}{attempt}{Style.reset} attempts")
             player_score = level, attempt
             try:
                 with open(file_name, "a") as f:
@@ -86,7 +86,7 @@ def game_play():
                 print("Could not write in file")
             break
     else:
-        print(f"You ran out of attempts, the number was {number}")
+        print(f"{Fore.purple_4a}You ran out of attempts, the number was{Style.reset} {number}")
     
 def read_file(file_name):
     try:
@@ -104,17 +104,17 @@ def read_file(file_name):
 def play_again():
     while True:
         try:
-            again = input("Play again? Y or N: ")
+            again = input(f"{Fore.dark_sea_green_4a}Play again?{Style.reset} Y or N: ")
             if again.lower() == "y":
                 game_play()
                 read_file(file_name)
                 play_again()
                 break
             elif again.lower() == "n":
-                print("Play again soon!!")
+                print(f"Play again {Fore.pale_turquoise_4}soon{Style.reset}!!")
                 break
             else:
-                raise ValueError("Please type Y or N only")
+                raise ValueError(f"{Fore.red}Please type Y or N only{Style.reset}")
         except ValueError as c:
             print(c)
 
