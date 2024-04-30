@@ -77,7 +77,11 @@ def game_play():
             else:
                 print(f"{attempts_left} attempts left")
         elif guess == number:
-            print(f"Congrats!! You guessed it in {attempt} attempts")
+            if attempt == 0:
+                print("Congrats!! You guessed it in the first attempt")
+                attempt += 1
+            else:
+                print(f"Congrats!! You guessed it in {attempt} attempts")
             player_score = level, name, attempt
             try:
                 with open(file_name, "a") as f:
