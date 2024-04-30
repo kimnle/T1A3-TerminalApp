@@ -39,7 +39,7 @@ def game_play():
                 break
             elif level.lower() == "h":
                 max = 1000
-                attempts = 15
+                attempts = 10
                 break
             else:
                 raise ValueError("Please type E, M or H only")
