@@ -119,7 +119,7 @@ def play_again():
             print(c)
 
 if __name__ == "__main__":
-    file_name = "players_scores.csv"
+    file_name = "player_scores.csv"
 
     create_file(file_name)
     game_title()
