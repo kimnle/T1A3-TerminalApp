@@ -51,7 +51,7 @@ def game_play():
     while attempt <= attempts:
         while True:
             try:
-                guess = int(input(f"Guess the number that I am thinking of between {Fore.magenta}1{Style.reset} and {Fore.magenta}{max}{Style.reset}: "))
+                guess = int(input(f"Guess the number that I am thinking of from {Fore.magenta}1{Style.reset} to {Fore.magenta}{max}{Style.reset}: "))
                 if 1 <= guess <= max:
                     break
                 else:
