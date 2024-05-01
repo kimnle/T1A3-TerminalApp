@@ -9,3 +9,4 @@ The code lay-out follows:
 
 * Four spaces per indentation and alignment with opening delimiter
 * All lines limited to a maximum of 79 characters
+* Top-level functions surrounded with two blank lines

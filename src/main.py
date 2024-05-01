@@ -95,7 +95,7 @@ def game_play():
             except IOError:
                 print("Could not write in file")
             break
-        
+
     else:
         print(f"{Fore.purple_4a}You ran out of attempts, the number was{Style.reset} "
               f"{number}")
@@ -131,6 +131,7 @@ def play_again():
                 raise ValueError(f"{Fore.red}Please type Y or N only{Style.reset}")
         except ValueError as c:
             print(c)
+
 
 if __name__ == "__main__":
     file_name = "player_scores.csv"
