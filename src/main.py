@@ -27,9 +27,9 @@ def player_name():
 def game_play():
     while True:
         try:
-            level = input(f"Choose level - {Fore.yellow}easy{Style.reset}, 
-                          {Fore.dark_orange_3a}medium{Style.reset} or 
-                          {Fore.light_red}hard{Style.reset}: ")
+            level = input(f"Choose level - {Fore.yellow}easy{Style.reset}, "
+                          f"{Fore.dark_orange_3a}medium{Style.reset} or "
+                          f"{Fore.light_red}hard{Style.reset}: ")
             if level.lower() == "easy":
                 max = 10
                 attempts = 5
@@ -43,8 +43,8 @@ def game_play():
                 attempts = 10
                 break
             else:
-                raise ValueError(f"{Fore.red}Please type easy, medium or hard only
-                                 {Style.reset}")
+                raise ValueError(f"{Fore.red}Please type easy, medium or hard only"
+                                 f"{Style.reset}")
         except ValueError as b:
             print(b)
 
@@ -54,13 +54,13 @@ def game_play():
     while attempt <= attempts:
         while True:
             try:
-                guess = int(input(f"Guess the number that I am thinking of from 
-                                  {Fore.magenta}1{Style.reset} and {Fore.magenta}{max}{Style.reset}: "))
+                guess = int(input(f"Guess the number that I am thinking of from "
+                                  f"{Fore.magenta}1{Style.reset} and {Fore.magenta}{max}{Style.reset}: "))
                 if 1 <= guess <= max:
                     break
                 else:
-                    print(f"{Fore.red}Please enter a number between 1 and {max} inclusive
-                          {Style.reset}")
+                    print(f"{Fore.red}Please enter a number between 1 and {max} inclusive"
+                          f"{Style.reset}")
             except ValueError:
                     print(f"{Fore.red}Please enter numbers only{Style.reset}")
 
@@ -81,8 +81,8 @@ def game_play():
             else:
                 print(f"{Fore.light_yellow}{attempts_left}{Style.reset} attempts left")
         elif guess == number:
-            print(f"{Fore.light_magenta}Congrats!!{Style.reset} You guessed it in 
-                  {Fore.light_yellow}{attempt}{Style.reset} attempts")
+            print(f"{Fore.light_magenta}Congrats!!{Style.reset} You guessed it in "
+                  f"{Fore.light_yellow}{attempt}{Style.reset} attempts")
             player_score = level, attempt
             try:
                 with open(file_name, "a") as f:
@@ -92,8 +92,8 @@ def game_play():
                 print("Could not write in file")
             break
     else:
-        print(f"{Fore.purple_4a}You ran out of attempts, the number was{Style.reset} 
-              {number}")
+        print(f"{Fore.purple_4a}You ran out of attempts, the number was{Style.reset} "
+              f"{number}")
     
 def read_file(file_name):
     try:
