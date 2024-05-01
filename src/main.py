@@ -5,18 +5,21 @@ import pandas as pd
 from colored import Fore, Style
 
 
+# Function prints game title
 def game_title():
     print(f"{Fore.green}Guess the Number Game{Style.reset}")
 
 
-def create_file(file_name):
+# Function creates file and writes header
+def create_file(file):
     try:
-        with open(file_name, "w") as f:
+        with open(file, "w") as f:
             f.write("Level,Attempts\n")
     except IOError:
         print("Could not create file")
 
 
+# Function asks for player's name
 def player_name():
     while True:
         try:
@@ -30,6 +33,11 @@ def player_name():
             print(a)
 
 
+# Function asks player if they want to play an easy, medium or hard game,
+# generates a random number, asks for the player's guess,
+# validates the guess, tracks the number of attempts and
+# detects when the game is over.
+# If the player wins, their score is appended to the file created earlier.
 def game_play():
     while True:
         try:
@@ -89,11 +97,11 @@ def game_play():
         elif guess == number:
             print(f"{Fore.light_magenta}Congrats!!{Style.reset} You guessed it in "
                   f"{Fore.light_yellow}{attempt}{Style.reset} attempts")
-            player_score = level, attempt
+            score = level, attempt
             try:
-                with open(file_name, "a") as f:
-                    csv_writer = csv.writer(f)
-                    csv_writer.writerow(player_score)
+                with open(file, "a") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(score)
             except IOError:
                 print("Could not write in file")
             break
@@ -103,11 +111,12 @@ def game_play():
               f"{number}")
 
 
-def read_file(file_name):
+# Function sorts and reads the .csv file with Python pandas
+def read_file(file):
     try:
-        df = pd.read_csv(file_name)
+        df = pd.read_csv(file)
         sorted_df = df.sort_values(by=["Level"], ascending=True)
-        sorted_df.to_csv(file_name, index=False)
+        sorted_df.to_csv(file, index=False)
         if sorted_df.empty == False:
             print("Your scores")
             print(sorted_df)
@@ -117,13 +126,14 @@ def read_file(file_name):
         print("Could not read file")
 
 
+# Function asks player if they want to play again
 def play_again():
     while True:
         try:
             again = input(f"{Fore.dark_sea_green_4a}Play again?{Style.reset} Y or N: ")
             if again.lower() == "y":
                 game_play()
-                read_file(file_name)
+                read_file(file)
                 play_again()
                 break
             elif again.lower() == "n":
@@ -136,11 +146,11 @@ def play_again():
 
 
 if __name__ == "__main__":
-    file_name = "player_scores.csv"
+    file = "player_scores.csv"
 
-    create_file(file_name)
+    create_file(file)
     game_title()
     player_name()
     game_play()
-    read_file(file_name)
+    read_file(file)
     play_again()
