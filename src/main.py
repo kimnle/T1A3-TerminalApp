@@ -1,4 +1,6 @@
-import random, csv
+import csv
+import random
+
 import pandas as pd
 from colored import Fore, Style
 
