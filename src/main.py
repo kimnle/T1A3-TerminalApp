@@ -2,8 +2,10 @@ import random, csv
 import pandas as pd
 from colored import Fore, Style
 
+
 def game_title():
     print(f"{Fore.green}Guess the Number Game{Style.reset}")
+
 
 def create_file(file_name):
     try:
@@ -11,6 +13,7 @@ def create_file(file_name):
             f.write("Level,Attempts\n")
     except IOError:
         print("Could not create file")
+
 
 def player_name():
     while True:
@@ -23,7 +26,8 @@ def player_name():
                 break
         except ValueError as a:
             print(a)
-    
+
+
 def game_play():
     while True:
         try:
@@ -91,10 +95,12 @@ def game_play():
             except IOError:
                 print("Could not write in file")
             break
+        
     else:
         print(f"{Fore.purple_4a}You ran out of attempts, the number was{Style.reset} "
               f"{number}")
-    
+
+
 def read_file(file_name):
     try:
         df = pd.read_csv(file_name)
@@ -107,6 +113,7 @@ def read_file(file_name):
             print("Win to show your scores")
     except IOError:
         print("Could not read file")
+
 
 def play_again():
     while True:
