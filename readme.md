@@ -42,7 +42,7 @@ Naming convention:
 
 The game prompts the player for their name and handles empty input exceptions. It then greets the player with their name upon successful input.
 
-#### The following three features are created in a function that handles the game logic and puts everything together
+#### The following three features are created in a function that handles the game logic and puts everything together.
 
 ### Levels
 
