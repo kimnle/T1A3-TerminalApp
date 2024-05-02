@@ -16,7 +16,6 @@ Line length:
 Blank lines:
 
 * Surrounds top-level functions with two blank lines for clear separation
-
 * Uses blank lines strategically within functions to enhance readability of logical steps
 
 Imports:
