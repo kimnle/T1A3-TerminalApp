@@ -34,43 +34,31 @@ Comments:
 Naming convention:
 
 * Variable and funtion names use ```lower_case_with_underscores```
-* Exception names follow CapWords convention and typically are suffixed with "Error"
+* Exception names follow CapWords convention and are typically suffixed with "Error"
 
 ## Features
 
 ### Player Name and Greeting
 
-The game prompts the player for their name and handles empty input exceptions.
-
-It then greets the player with their name upon successful input.
+The game prompts the player for their name and handles empty input exceptions. It then greets the player with their name upon successful input.
 
 #### The following three features are created in a function that handles the game logic and puts everything together
 
 ### Levels
 
-The game allows players to choose difficulty levels ("easy", "medium", or "hard").
-
-Each level has a specific range for the random number and a set number of attempts allowed.
-
-Invalid level selections trigger exceptions.
+The game allows players to choose difficulty levels ("easy", "medium", or "hard"). Each level has a specific range for the random number and a set number of attempts allowed. Invalid level selections trigger exceptions.
 
 ### Guessing and Validation
 
-Players input guesses within the chosen level's range.
-
-The game uses a while loop to continuously prompt for valid input if an invalid guess (strings, floats, etc.) is provided.
+Players input guesses within the chosen level's range. The game uses a while loop to continuously prompt for valid input if an invalid guess (strings, floats, etc.) is provided.
 
 ### Feedback and Attempts
 
-The game provides feedback on guesses, indicating if they are "higher", "lower", or correct.
-
-It tracks the number of attempts used and informs the player of remaining attempts.
+The game provides feedback on guesses, indicating if they are "higher", "lower", or correct. It tracks the number of attempts used and informs the player of remaining attempts.
 
 ### Winning and Score Tracking
 
-Upon a correct guess, the player wins and their score is appended to a CSV file.
-
-Pandas is used to read and sort the CSV file (if existing) for displaying player scores like:
+Upon a correct guess, the player wins and their score is appended to a CSV file. Pandas is used to read and sort the CSV file (if existing) for displaying player scores like:
 
 ![dataframe](/docs/dataframe.png)
 
@@ -82,21 +70,13 @@ Pandas is used to read and sort the CSV file (if existing) for displaying player
 
 [Link to Trello board](https://trello.com/b/FYOugRYB/number-guessing-game)
 
-I used Trello to manage the overall project and individual tasks related to the feature implementation.
-
-Each card outlined the specific tasks needed to complete a particular feature.
-
-I assigned due dates to tasks and used labels to group related tasks together for efficient feature completion.
-
-I captured screenshots of the Trello board during development for reference in the docs folder.
+I used Trello to manage the overall project and individual tasks related to the feature implementation. Each card outlined the specific tasks needed to complete a particular feature. I assigned due dates to tasks and used labels to group related tasks together for efficient feature completion. I captured screenshots of the Trello board during development for reference in the docs folder.
 
 ![Trello screeshot 1](docs/trello-1.png)
 ![Trello screenshot 12](docs/trello-12a.png)
 ![Trello screenshot 24](docs/trello-24.png)
 
-The second screenshot shows me prioritising tasks with later due dates over an outstanding task with an earlier due date.
-
-I realised during development that implementing features first then adding exception handling was a more efficient approach as it first allowed me to establish the core logic of the game and ensure it functioned as intended for later incorporating exception handling.
+The second screenshot shows priorisation of tasks with later due dates over an outstanding task with an earlier due date. I realised during development that implementing features first then adding exception handling was a more efficient approach as it first allowed me to establish the core logic of the game and ensure it functioned as intended for later incorporating exception handling.
 
 ## Help Documentation
 
